@@ -17,6 +17,11 @@ import { Component, OnInit } from '@angular/core';
               <h4> {{ wlcMessage() }}. </h4> 
               Inline template text here ... <br />
               This is sample from test component
+              
+              <p>Property binding: <br />
+              <input [id]="myId" type="text" value="Mostafa">
+              <input bind-disabled="isDisabled" id="{{ myId }}" type="text" value="Mostafa">
+              </p>
             </div>`,
 
   // styleUrls: ['./test.component.css']
@@ -36,6 +41,10 @@ export class TestComponent implements OnInit {
   wlcMessage() {
     return `You have choosen the right place, ${this.user}`
   }
+
+  // Interpolation - property binding
+  public myId = "my-id";
+  public isDisabled = true;
 
   constructor() { }
 
