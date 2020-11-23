@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
 
   // Using inline template
   template: `<div>
+              <h2> Hi {{ user.toUpperCase() }}! </h2>
+              <h4> {{ wlcMessage() }}. </h4> 
               Inline template text here ... <br />
               This is sample from test component
             </div>`,
@@ -27,6 +29,13 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class TestComponent implements OnInit {
+
+  // Dynamically interpolation from class to template
+  public user = 'Mostafa';
+
+  wlcMessage() {
+    return `You have choosen the right place, ${this.user}`
+  }
 
   constructor() { }
 
