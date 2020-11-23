@@ -23,7 +23,7 @@ function log(target, name, descriptor) {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'intro2angular';
+  title = 'Build With Innovation Ltd.';
 
   constructor() {
     console.log("The statement was generated thruogh constructor", this.testMethod(1, 2, 3));
