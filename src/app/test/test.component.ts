@@ -32,6 +32,16 @@ import { Component, OnInit } from '@angular/core';
         value="Mostafa"
       />
     </p>
+
+   
+    <h2 [style.color]="'purple'"> This is inline style binding example </h2>
+
+    <h2 [style.color]="isSpecial ? 'green' : 'gray' "> Style binding with conditional expression </h2>
+
+    <h2 [style.border]="borderDesign"> Style binding with class</h2>
+
+    <h2 [ngStyle]="allStyles"> Style binding with object </h2>
+
   </div>`,
 
   // styleUrls: ['./test.component.css']
@@ -86,6 +96,14 @@ export class TestComponent implements OnInit {
     "text-danger": !this.noError,
     "text-italic": this.isSpecial
 
+  }
+  // Style binding
+  public borderDesign = "1px solid green";
+  public allStyles = {
+    color: "brown",
+    fontStyle: "underline",
+    borderRadius: "5px",
+    border: "1px solid blue",
   }
 
   constructor() {}
