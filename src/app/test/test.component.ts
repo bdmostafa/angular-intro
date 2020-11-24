@@ -42,6 +42,12 @@ import { Component, OnInit } from '@angular/core';
 
     <h2 [ngStyle]="allStyles"> Style binding with object </h2>
 
+    <button (click)="onClick($event)">Event</button> <br />
+    {{ eventGreeting }} <br />
+    {{ eventInfo }} <br />
+
+    <button (click)="eventGreeting='Template Statement without event handler'">Event</button> 
+
   </div>`,
 
   // styleUrls: ['./test.component.css']
@@ -105,6 +111,15 @@ export class TestComponent implements OnInit {
     borderRadius: "5px",
     border: "1px solid blue",
   }
+
+ // Event binding
+ public onClick(event) {
+   alert("This is event binding!");
+   this.eventGreeting = "Event binding by setting property on the mouse click"
+   this.eventInfo = event.type;
+ }
+ public eventGreeting = "";
+ public eventInfo = "";
 
   constructor() {}
 
