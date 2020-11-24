@@ -46,7 +46,11 @@ import { Component, OnInit } from '@angular/core';
     {{ eventGreeting }} <br />
     {{ eventInfo }} <br />
 
-    <button (click)="eventGreeting='Template Statement without event handler'">Event</button> 
+    <button (click)="eventGreeting='Template Statement without event handler'">Event</button> <br />
+
+    <input #myInput type="text">
+    <button (click)="getMsg(myInput.value)">Get</button>
+    {{ msg }}
 
   </div>`,
 
@@ -120,6 +124,14 @@ export class TestComponent implements OnInit {
  }
  public eventGreeting = "";
  public eventInfo = "";
+
+ // Template reference variables
+ public getMsg(value) {
+  console.log(value)
+  this.msg = value;
+ }
+ public msg = "";
+
 
   constructor() {}
 
