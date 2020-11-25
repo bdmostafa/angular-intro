@@ -33,7 +33,25 @@ import { Component, OnInit } from '@angular/core';
       <p *ngSwitchCase="'learner'">You are a learner</p>
       <p *ngSwitchDefault>Try again</p>
     </div>
+
+    <h3>ngFor examples</h3>
+    <h4 *ngFor="let color of colors; index as i">
+    <p> {{ i + 1 }} {{ color }}</p> 
+    </h4>
+
   </div>`,
+
+   // <h4 *ngFor="let color of colors; first as f">
+  //   <p> {{ f }} {{ color }}</p>
+
+   // <h4 *ngFor="let color of colors; last as l">
+  //   <p> {{ l }} {{ color }}</p>
+
+  // <h4 *ngFor="let color of colors; odd as o">
+  //   <p> {{ o }} {{ color }}</p>
+
+  // <h4 *ngFor="let color of colors; even as e">
+  //   <p> {{ e }} {{ color }}</p>
 
   styles: [
     `
@@ -54,6 +72,8 @@ export class TestComponent implements OnInit {
   public displayMsg3 = true;
 
   public status = "programmer";
+
+  public colors = ["red", "blue", "green"];
 
   constructor() {}
 
