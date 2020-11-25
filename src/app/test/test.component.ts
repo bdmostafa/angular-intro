@@ -50,7 +50,11 @@ import { Component, OnInit } from '@angular/core';
 
     <input #myInput type="text">
     <button (click)="getMsg(myInput.value)">Get</button>
-    {{ msg }}
+    {{ msg }} <br />
+
+    Two way binding (data and event):
+    <input [(ngModel)]="name" type="text">
+    {{ name }}
 
   </div>`,
 
@@ -131,6 +135,9 @@ export class TestComponent implements OnInit {
   this.msg = value;
  }
  public msg = "";
+
+ // Two way binding (data - event / from template to class / from class to template)
+ public name = "";
 
 
   constructor() {}
