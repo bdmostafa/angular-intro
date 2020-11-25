@@ -4,42 +4,56 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-test',
 
   template: `<div>
-            <h2> Welcome {{ user }}! </h2>
-            <p *ngIf="true"> This is ngIf truthy example *ngIf="true" </p>
-            <p *ngIf="false"> This is ngIf falsy example. </p>
+    <h2>Welcome {{ user }}!</h2>
+    <h3>ngIf examples</h3>
+    <p *ngIf="true">This is ngIf truthy example *ngIf="true"</p>
+    <p *ngIf="false">This is ngIf falsy example.</p>
 
-            <p *ngIf="displayMsg"> With assigning property value *ngIf="displayName" </p>
+    <p *ngIf="displayMsg">With assigning property value *ngIf="displayName"</p>
 
-            <p *ngIf="displayMsg2; else elseBlock"> With assigning property value *ngIf="displayName" </p>
+    <p *ngIf="displayMsg2; else elseBlock">
+      With assigning property value *ngIf="displayName"
+    </p>
 
-            <p *ngIf="displayMsg3; then thenBlock; else elseBlock"></p>
+    <p *ngIf="displayMsg3; then thenBlock; else elseBlock"></p>
 
-            <ng-template #thenBlock>
-              <p>Message from thenBlock...</p>
-            </ng-template>
+    <ng-template #thenBlock>
+      <p>Message from thenBlock...</p>
+    </ng-template>
 
-            <ng-template #elseBlock>
-              <p>Message is hidden from elseBlock</p>
-            </ng-template>
-          </div>`,
+    <ng-template #elseBlock>
+      <p>Message is hidden from elseBlock</p>
+    </ng-template>
 
-  styles: [`
-    div {
-      background: lightgrey;
-      width: 50%;
-      display: inline-block;
-      border-radius: 10px;
-      padding: 20px;
-    }
+    
+    <div [ngSwitch]="status">
+      <h3>ngSwitch examples</h3>
+      <p *ngSwitchCase="'programmer'">You are a programmer</p>
+      <p *ngSwitchCase="'teacher'">You are a teacher</p>
+      <p *ngSwitchCase="'learner'">You are a learner</p>
+      <p *ngSwitchDefault>Try again</p>
+    </div>
+  </div>`,
 
-  `],
+  styles: [
+    `
+      div {
+        background: lightgrey;
+        width: 50%;
+        display: inline-block;
+        border-radius: 10px;
+        padding: 20px;
+      }
+    `,
+  ],
 })
 export class TestComponent implements OnInit {
-
-  public user = "Mostafa";
+  public user = 'Mostafa';
   public displayMsg = true;
   public displayMsg2 = false;
   public displayMsg3 = true;
+
+  public status = "programmer";
 
   constructor() {}
 
