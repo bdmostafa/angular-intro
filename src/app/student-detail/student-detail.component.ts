@@ -6,6 +6,7 @@ import { StudentService } from '../student.service';
   template: `
     <div>
       <h2>Student Detail</h2>
+      <h4> {{ errorMsg }} </h4>
       <ul *ngFor="let student of students">
         <li>{{ student.id }} - {{ student.name }} - {{ student.age }}</li>
       </ul>
@@ -15,12 +16,16 @@ import { StudentService } from '../student.service';
 })
 export class StudentDetailComponent implements OnInit {
   public students = [];
+  public errorMsg;
 
   constructor(private _studentService: StudentService) {}
 
   ngOnInit(): void {
     this._studentService
       .getStudents()
-      .subscribe((data) => (this.students = data));
+      .subscribe(
+        (data) => (this.students = data),
+        (error) => (this.errorMsg = error)
+        );
   }
 }
