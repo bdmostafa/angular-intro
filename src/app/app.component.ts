@@ -9,6 +9,8 @@ export class AppComponent {
 
   public name = "Mostafa";
   public age = 29;
+
+  public message = "";
   
 
   constructor() {}
