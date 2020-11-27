@@ -1,17 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IStudent } from './student';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  constructor() { }
+  private _url: string = "/assets/data/students.json";
 
-  getStudents() {
-    return [
-      {"id": 1, "name": "Mostafa", "age": 29},
-      {"id": 2, "name": "Shafee", "age": 32},
-      {"id": 3, "name": "Shams", "age": 31},
-    ]
+  constructor(private http: HttpClient) { }
+
+  getStudents(): Observable<IStudent[]> {
+    return this.http.get<IStudent[]>(this._url);
   }
 }

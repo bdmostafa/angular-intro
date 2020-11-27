@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Service - Create a service, Register it with an injector, declare it as a dependency in the component that once to use it';  
+  title = 'HTTP, Observables and RxJS';  
 
   constructor() {}
 }
